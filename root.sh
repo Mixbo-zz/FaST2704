@@ -1,4 +1,7 @@
 #!/bin/bash
+#	~Mixbo
+#	https://github.com/Mixbo/FaST2704/
+#	www.wakowakowako.com
 
 if [ -z "$1" ]
   then
