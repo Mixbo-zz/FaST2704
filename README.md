@@ -3,7 +3,7 @@
 ### Included
 `root.sh` is a simple shell script that provides the root shell
 
-`lsFileList.txt` is a the complete list of files on the device.
+`lsFileList.txt` is the complete list of files on the device.
 
 ### Usage
 
@@ -132,7 +132,7 @@ wan
 
 Unfortunately, the F@ST2704R firmware is not available to download, but [the F@ST2704 is](http://support.sagemcom.com/site/mo/broadband-access-9/sagemcom-f-st-2704-etisalat-1035/driver). It can't be THAT different eh?
 wget this stuff, and binwalk the shit out of it!
-Not so surprisingly, the binairies we want exist in the /bin folder, the shell we're provided just can't get to it. We must break the jail.
+Not so surprisingly, the binairies we want exist in the `/bin/` folder, the shell we're provided just can't get to it. We must break the jail.
 
 ### Breaking the jail
 
@@ -185,6 +185,7 @@ Enter 'help' for a list of built-in commands.
 # 
 ```
 
- Using the username user and the default password user followed by this ping/semicolon loophole gives us access to a shell with administrative rights more easiy than brute-forcing the admin's password (default 4 letters, can be changed for another one up to 16 letters).
+ Using the username `user` and the default password `user` followed by this ping/semicolon loophole gives us access to a shell with administrative rights more easiy than brute-forcing the admin's password (default 4 letters, can be changed for another one up to 16 letters).
 
  Automated shell sript included lucky bastard!
+ Remember you still have to deal with squashfs read-only filesystem!
