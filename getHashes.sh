@@ -9,7 +9,6 @@ function main()
 	type expect >/dev/null 2>&1 || { echo >&2 "[-] expect is not installed. Closing program..."; exit 1; }
 	logfile="hashes.log"
 	hashfile="hashes.txt"
-	decrypted="crack.log"
 
 	if [ -z "$1" ]
 	  then
@@ -45,9 +44,7 @@ function main()
 	case $choice in
 		[Yy]* )
 			echo -e "[+] Starting John the Ripper to crack $hashfile\n\n"
-			sudo john $hashfile --show > $decrypted
-			cat $decrypted
-			echo "[+] John the Ripper's output saved in $decrypted";;
+			sudo john $hashfile --show
 
 	esac
 }
