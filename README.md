@@ -187,5 +187,6 @@ Enter 'help' for a list of built-in commands.
 
  Using the username `user` and the default password `user` followed by this ping/semicolon loophole gives us access to a shell with administrative rights more easiy than brute-forcing the admin's password (default 4 letters, can be changed for another one up to 16 letters).
 
- Automated shell sript included lucky bastard!
- Remember you still have to deal with squashfs read-only filesystem!
+ *Automated shell sript included lucky bastard!*
+
+ *Remember you still have to deal with squashfs read-only filesystem!*
