@@ -193,4 +193,4 @@ Enter 'help' for a list of built-in commands.
 
  Honestly I didn't push my research really far. Maybe this has been documented before and maybe the firmware is available somewhere. If this is the case, contact me.
 
- ~ Mixbo wakowakowako.com
+ ~ Mixbo www.wakowakowako.com
