@@ -190,3 +190,7 @@ Enter 'help' for a list of built-in commands.
  **Automated shell sript included lucky bastard!**
 
  **Remember you still have to deal with squashfs read-only filesystem!**
+
+ Honestly I didn't push my research really far. Maybe this has been documented before and maybe the firmware is available somewhere. If this is the case, contact me.
+
+ ~ Mixbo wakowakowako.com
