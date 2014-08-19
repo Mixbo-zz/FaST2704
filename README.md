@@ -2,7 +2,7 @@
 
 ### What is it?
 
-Basically, if you don't know the random admin credentials of your **SagemCom F@st2704** router, you can get a root shell with the user account's hardcoded password.
+Basically, if you don't know the random admin credentials of your **SagemCom F@st2704** router, you can still get a root shell with the user account's hardcoded password.
 
 
 ### Included
