@@ -7,11 +7,11 @@
 
 ### Usage
 
-`./root.sh [target=192.168.1.1]`
+`$./root.sh [target=192.168.1.1]`
 
 ## Long story short
 
-I went back to my parent's place for a few days. I had quite a surprise: they replaced the nice Cisco router I got them by a Sagemcom F@ST2704R . When I asked them why, they told me the local ISP gave F@ST2704R to all their clients in the area. Knowing that was quite a lot of clients I decided to take a look at the device.
+I went back to my parent's place for a few days. I had quite a surprise: they replaced the nice Cisco router I got them by a **Sagemcom F@ST2704R** . When I asked them why, they told me the local ISP gave **F@ST2704R** to all their clients in the area. Knowing that was quite a lot of clients I decided to take a look at the device.
 
 ### So... How is it?
 
