@@ -6,6 +6,7 @@
 function main()
 {
 	echo "[+] Launching SagemCom F@ST2704 passwd Tool"
+	type expect >/dev/null 2>&1 || { echo >&2 "[-] expect is not installed. Closing program..."; exit 1; }
 	logfile="hashes.log"
 	hashfile="hashes.txt"
 	decrypted="crack.log"
@@ -18,6 +19,7 @@ function main()
 	fi
 
 	echo "[+] Connecting to host $host"
+
 
 	(expect -c "
 		set timeout 20

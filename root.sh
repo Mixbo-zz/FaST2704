@@ -3,6 +3,8 @@
 #	https://github.com/Mixbo/FaST2704/
 #	www.wakowakowako.com
 
+type expect >/dev/null 2>&1 || { echo >&2 "[-] expect is not installed. Closing program..."; exit 1; }
+
 if [ -z "$1" ]
   then
     host="192.168.1.1"
