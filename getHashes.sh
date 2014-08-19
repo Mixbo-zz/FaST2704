@@ -45,7 +45,7 @@ function main()
 	case $choice in
 		[Yy]* )
 			echo -e "[+] Starting John the Ripper to crack $hashfile\n\n"
-			john $hashfile --show > $decrypted
+			sudo john $hashfile --show > $decrypted
 			cat $decrypted
 			echo "[+] John the Ripper's output saved in $decrypted";;
 
