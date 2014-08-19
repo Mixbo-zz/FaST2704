@@ -8,6 +8,8 @@ Basically, if you don't know the random admin credentials of your **SagemCom F@s
 ### Included
 `root.sh` is a simple shell script that provides the root shell
 
+`getHashes.sh` uses the same login principle as **root.sh** but automatically downloads the remote /etc/passwd file in a local directory instead of letting the user interact with the shell. You can later crack the DES hashes with a password cracking tool.
+
 `lsFileList.txt` is the complete list of files on the device.
 
 ### Usage
