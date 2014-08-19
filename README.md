@@ -13,11 +13,13 @@ Telnet and ssh is activated by default on the LAN. The admin password is a strin
 I logged on telnet to discover the provided shell was somewhat limited. Trying basic unix commands would lead to an error.
 
 ```> ls
-telnetd:error:774.006:processInput:406:unrecognized command ls```
+
+telnetd:error:774.006:processInput:406:unrecognized command ls ```
 
 Let's see what we have
 
-```> help
+```
+> help
 
 ?
 help
@@ -70,7 +72,8 @@ cfgupdate
 swupdate
 exitOnIdle
 wan
-mcpctl```
+mcpctl
+```
 
 
 No ls, no cd... I would need more than that. Still, I got cat!
