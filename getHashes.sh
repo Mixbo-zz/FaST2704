@@ -46,8 +46,6 @@ function main()
 			john $hashfile --show > $decrypted
 			cat $decrypted
 			echo "[+] John the Ripper's output saved in $decrypted";;
-		[Nn]* )
-			echo "[+] Closing program...";;
 
 	esac
 }
@@ -68,5 +66,6 @@ function parse()
 	echo "[+] Hashes saved in $hashfile !"
 }
 main $1
+echo "[+] Closing program..."
 exit
 
