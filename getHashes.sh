@@ -1,9 +1,14 @@
 #!/bin/bash
+#	~Mixbo
+#	https://github.com/Mixbo/FaST2704/
+#	www.wakowakowako.com
 
 function main()
 {
+	echo "[+] Launching SagemCom F@ST2704 passwd Tool"
 	logfile="hashes.log"
 	hashfile="hashes.txt"
+	decrypted="crack.log"
 
 	if [ -z "$1" ]
 	  then
@@ -31,6 +36,20 @@ function main()
 	echo "[+] Saved session in $logfile"
 
 	parse
+
+	type john >/dev/null 2>&1 || { echo >&2 "[-] John the Ripper is not installed. Closing program..."; exit 1; }
+
+	read -p "[+] Do you want to feed the hashes to John the Ripper? [y/*] " choice
+	case $choice in
+		[Yy]* )
+			echo -e "[+] Starting John the Ripper to crack $hashfile\n\n"
+			john $hashfile --show > $decrypted
+			cat $decrypted
+			echo "[+] John the Ripper's output saved in $decrypted";;
+		[Nn]* )
+			echo "[+] Closing program...";;
+
+	esac
 }
 
 function parse()
