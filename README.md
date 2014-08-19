@@ -15,6 +15,7 @@ Basically, if you don't know the random admin credentials of your **SagemCom F@s
 ### Usage
 
 `$./root.sh [target=192.168.1.1]` to get a root shell
+
 `$./getHashes.sh [target=192.168.1.1]` to save password hashes
 
 ## Long story short
