@@ -39,7 +39,7 @@ function main()
 
 	parse
 
-	type john >/dev/null 2>&1 || { echo >&2 "[-] John the Ripper is not installed. Closing program..."; exit 1; }
+	type sudo john >/dev/null 2>&1 || { echo >&2 "[-] John the Ripper is not installed. Closing program..."; exit 1; }
 
 	read -p "[+] Do you want to feed the hashes to John the Ripper? [y/*] " choice
 	case $choice in
