@@ -14,7 +14,6 @@ I logged on telnet to discover the provided shell was somewhat limited. Trying b
 
 ```
 > ls
-
 telnetd:error:774.006:processInput:406:unrecognized command ls
 ```
 
@@ -22,7 +21,6 @@ Let's see what we have
 
 ```
 > help
-
 ?
 help
 logout
