@@ -2,7 +2,7 @@
 
 ### What is it?
 
-Basically, if you don't know the random admin credentials of your **SagemCom F@st2704** router, you can still get a root shell with the user account's hardcoded password.
+Basically, if you don't know the admin password of your **SagemCom F@st2704** router, you can still get a root shell with the user account's hardcoded password.
 
 
 ### Included
@@ -26,7 +26,7 @@ I went back to my parent's place for a few days. I had quite a surprise: they re
 
 This piece of hardware/software is crap.
 
-Telnet and ssh is activated by default on the LAN. The admin password is a string of 4 random lowercase letters. Wrong start mate.
+Telnet and ssh is activated by default on the LAN. The admin password is a string of 4 lowercase letters. Wrong start mate. **Update: The ISP also gave all their clients the same WPS PIN**
 
 I logged on telnet to discover that the provided shell was somewhat limited. Trying basic unix commands would lead to an error.
 
@@ -110,7 +110,7 @@ support:support
 user:user
 ```
 
-The admin account had at least the decency of using a randomly generated password instead of a hardcoded one...
+The admin account had at least the decency of using a different password on every device instead of a hardcoded one...
 
 Trying to log with the support account leads to a dead end, access is denied for some reason.
 This is not the case with the "user" account. Typing help in the user prompt gives us a really short list of commands that can be used by the user account.
@@ -201,8 +201,5 @@ Enter 'help' for a list of built-in commands.
  **Remember you still have to deal with squashfs read-only filesystem!**
 
  Honestly I didn't push my research really far. Maybe this has been documented before and maybe the firmware is available somewhere (I might dump it in a few days... or months). If this is the case, contact me.
-
- Funny fact: my parent's ISP set the **EXACT SAME WPS PIN** on every device they gave away: 76229909
- The task is easy this way.
 
  ~ Mixbo www.wakowakowako.com
