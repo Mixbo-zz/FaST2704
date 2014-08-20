@@ -4,7 +4,7 @@
 #	www.wakowakowako.com
 
 function haveProg() {
-    [ -x "$(which $1)" ]
+    [ -x "$(sudo which $1)" ]
 }
 
 function main()
