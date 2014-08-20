@@ -112,8 +112,8 @@ user:user
 
 The admin account had at least the decency of using a different password on every device instead of a hardcoded one...
 
-Trying to log with the support account leads to a dead end, access is denied for some reason.
-This is not the case with the "user" account. Typing help in the user prompt gives us a really short list of commands that can be used by the user account.
+Trying to log with the support account leads to a dead end, access is denied for some reason. 
+This is not the case with the "user" account. Typing help in the user prompt gives us a really short list of commands that can be used by the user account. **Update: After some tests, it seems like the support account is blocked from LAN, but is available from WAN. If you're attacking from WAN, use the support account**
 
 ```
 > help
