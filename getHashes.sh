@@ -44,6 +44,8 @@ function main()
 	case $choice in
 		[Yy]* )
 			echo -e "[+] Starting John the Ripper to crack $hashfile\n\n"
+			sudo john $hashfile
+			echo -e "\n\n"
 			sudo john $hashfile --show
 
 	esac
