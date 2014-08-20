@@ -26,7 +26,7 @@ I went back to my parent's place for a few days. I had quite a surprise: they re
 
 This piece of hardware/software is crap.
 
-Telnet and ssh is activated by default on the LAN. The admin password is a string of 4 lowercase letters. Wrong start mate. **Update: The ISP also gave all their clients the same WPS PIN**
+Telnet and ssh is activated by default on the LAN. The admin password is a string of 4 lowercase letters. Wrong start mate. **Update: The ISP also gave all their clients the same WPS PIN! Try to aquire the WPA passphrase with PIN 76229909**
 
 I logged on telnet to discover that the provided shell was somewhat limited. Trying basic unix commands would lead to an error.
 
