@@ -1,8 +1,8 @@
-# F@ST2704 has a root shell for everybody!
+# F@ST2704R has a root shell for everybody!
 
 ### What is it?
 
-Basically, if you don't know the admin password of your **SagemCom F@st2704** router, you can still get a root shell with the user account's hardcoded password.
+Basically, if you don't know the admin password of your **SagemCom F@st2704R** router, you can still get a root shell with the user account's hardcoded password.
 
 
 ### Included
