@@ -202,4 +202,7 @@ Enter 'help' for a list of built-in commands.
 
  Honestly I didn't push my research really far. Maybe this has been documented before and maybe the firmware is available somewhere (I might dump it in a few days... or months). If this is the case, contact me.
 
+ Funny fact: my parent's ISP set the **EXACT SAME WPS PIN** on every device they gave away: 76229909
+ The task is easy this way.
+
  ~ Mixbo www.wakowakowako.com
