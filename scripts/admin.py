@@ -24,7 +24,7 @@ class Target(object):
 			print "[-] Unable to download config file... Closing"
 			return 1
 		else:
-			print "[+] Successfuly device's config file"
+			print "[+] Successfuly aquired device's config file"
 			return 0
 
 	def getAdmin(self):
