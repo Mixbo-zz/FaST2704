@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import urllib2, base64, sys
+import urllib2, base64, sys, os
 
 class Target(object):
 	def __init__(self, host,user):
@@ -62,8 +62,11 @@ class Target(object):
 
 		print "[+] Saving target's informations as "+logfile
 
+
+		if not os.path.exists("fast-results"):
+			os.makedirs("fast-results")
 		try:
-			f = open("./results/"+logfile, "w")
+			f = open("fast-results/"+logfile, "w")
 		except:
 			f = open(+logfile, "w")
 
