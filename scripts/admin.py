@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# ~Mixbo
+# https://github.com/Mixbo/FaST2704/
+# www.wakowakowako.com
+
 import urllib2, base64, sys, os
 
 class Target(object):
