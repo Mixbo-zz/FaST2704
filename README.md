@@ -8,7 +8,9 @@ Basically, if you don't know the admin password of your **SagemCom F@st2704R** r
 ### Included
 `root.sh` is a simple shell script that provides the root shell
 
-`getHashes.sh` uses the same login principle as **root.sh** but automatically downloads the remote /etc/passwd file in a local directory instead of letting the user interact with the shell. You can later crack the DES hashes with a password cracking tool.
+`admin.py` is a python script that downloads the router's configuration file and extracts the admin password. You don't need to crack `/etc/passwd` anymore!
+
+`getHashes.sh` uses the same login principle as **root.sh** but automatically downloads the remote /etc/passwd file in a local directory instead of letting the user interact with the shell. ~~You can later crack the DES hashes with a password cracking tool.~~ You can use `admin.py` instead
 
 `lsFileList.txt` is the complete list of files on the device.
 
@@ -16,7 +18,7 @@ Basically, if you don't know the admin password of your **SagemCom F@st2704R** r
 
 `$./root.sh [target=192.168.1.1]` to get a root shell
 
-`$./getHashes.sh [target=192.168.1.1]` to save password hashes. John the Ripper will require sudo on a lot of distro
+~~`$./getHashes.sh [target=192.168.1.1]` to save password hashes. John the Ripper will require sudo on a lot of distro~~ **getHashes.sh is no longer necessary. It is still available for the hashes lovers around here, but admin.py is much more efficient to find the admin password**
 
 ## Long story short
 
