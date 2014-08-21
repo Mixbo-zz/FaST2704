@@ -18,6 +18,8 @@ Basically, if you don't know the admin password of your **SagemCom F@st2704R** r
 
 `$./root.sh [target=192.168.1.1]` to get a root shell
 
+`$python admin.py [target=192.168.1.1]` to find admin's password
+
 ~~`$./getHashes.sh [target=192.168.1.1]` to save password hashes. John the Ripper will require sudo on a lot of distro~~ **getHashes.sh is no longer necessary. It is still available for the hashes lovers around here, but admin.py is much more efficient to find the admin password**
 
 ## Long story short
