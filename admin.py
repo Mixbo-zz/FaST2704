@@ -57,7 +57,7 @@ if __name__ == '__main__':
 		host = sys.argv[1]
 		if "://" not in host:
 			host = "http://"+host
-		if host[len(host)] != "/":
+		if host[len(host)-1] != "/":
 			host = host+"/"
 	else:
 		host = "http://192.168.1.1/"
