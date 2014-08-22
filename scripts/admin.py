@@ -64,7 +64,7 @@ class Target(object):
 
 		logfile = essid.replace("\x20","_")+"-"+bssid+".log"
 
-		print "[+] Saving target's informations as "+logfile
+		print "[+] Saving target's informations as "+logfile+"\n\n"
 
 
 		if not os.path.exists("fast-results"):
@@ -74,17 +74,26 @@ class Target(object):
 		except:
 			f = open(+logfile, "w")
 
-		f.write("SagemCom F@ST exploitation by Mixbo")
-		f.write("\nLast version on www.github.com/Mixbo/FaST2704")
+		logs = ""
+
+		logs+="SagemCom F@ST exploitation by Mixbo"
+		logs+="\nLast version on www.github.com/Mixbo/FaST2704"
 		
-		f.write("\n\nTarget name:\t\t"+host)
-		f.write("\nESSID:\t\t\t"+essid)
-		f.write("\nAdmin account:\t\tadmin:"+self.admin)
-		f.write("\nProtection info:\t"+wpa+" "+auth)
-		f.write("\nWiFi passphrase:\t"+passphrase)
-		f.write("\nTarget mac address:\t"+bssid)
-		f.write("\n\nSoftware/Hardware Versions\n###################################\n")
-		f.write(version)
+		logs+="\n\nTarget name:\t\t"+host
+		logs+="\nESSID:\t\t\t"+essid
+		logs+="\nAdmin account:\t\tadmin:"+self.admin
+		logs+="\nProtection info:\t"+wpa+" "+auth
+		logs+="\nWiFi passphrase:\t"+passphrase
+		logs+="\nTarget mac address:\t"+bssid
+		logs+="\n\nSoftware/Hardware Versions\n###################################\n"
+		logs+=version
+
+		print logs
+
+		try:
+			f.write(logs)
+		except:
+			print "[-] Error while writing to file!"
 
 		f.close()
 
@@ -100,6 +109,8 @@ def main():
 		opp = target.getConfigFile()
 		if opp == 0:
 			target.getAdmin()
+
+	print "\n\n[+] End of job. Closing..."
 
 
 if __name__ == '__main__':
