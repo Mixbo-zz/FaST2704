@@ -16,10 +16,18 @@ class Target(object):
 			return False
 		return True
 
+	def configConnection(self):
+		print("This is where we try to build a config file using reaver results")
+
+	def connect(self):
+		print("This is where wpa_supplicant connects to router using the config file")
 
 def main():
 	target = Target(bssid)
-	target.attackWPS()
+	if target.attackWPS():
+		target.configConnection()
+		target.connect(self)
+	return 0
 if __name__ == "__main__":
 	if len(sys.argv) == 1:
 		print "[-] You must supply the target's BSSID"
